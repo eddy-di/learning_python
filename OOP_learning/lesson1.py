@@ -31,6 +31,30 @@ def main(): # function outside of class
     car1 = Car('Ford', 'Mustang', 2011, 'Blue') # the obhects of a class Car were created inside the function main
     car2 = Car('Tesla', 'Model 3', 2021, 'Red', True)
 
+    # Accessing car1 attributes
+    print('Printing car1 details:'.center(50, '-'))
+    print('Make: {}'.format(car1.make)) # to access an attribute of an object as in example `car1.model` line of code is necessary
+    print('Model: {}'.format(car1.model))
+    print('Year: {}'.format(car1.year))
+    print('Color: {}'.format(car1.color))
+    print('Moon roof: {}'.format(car1.moon_roof))
+
+    # Accessing car2 attributes
+    print('Printing car1 details:'.center(50, '-'))
+    print('Make: {}'.format(car2.make))
+    print('Model: {}'.format(car2.model))
+    print('Year: {}'.format(car2.year))
+    print('Color: {}'.format(car2.color))
+    print('Moon roof: {}'.format(car2.moon_roof))
+
+    # Class Attributes
+    print('Class Attributes:'.center(50, '-'))
+    print('car1 number of tires:', car1.tires_num)
+    print('car1 number of steering wheels', car1.steering_wheel_num)
+    print('car2 number of tires:', car2.tires_num)
+    print('car2 number of steering wheels', car2.steering_wheel_num)
+    print('Car number of tires:', Car.tires_num)
+    print('Car number of steering wheels', Car.steering_wheel_num)
 
 
 if __name__ == '__main__': # function is called if this condition is met
