@@ -7,15 +7,15 @@ class Car:
     transmission = 'manual' # or 'automatic'
 
     # Class Constructor/Initializer (Method with a special name)
-    def __init__(self, make, model, year, color, moon_roof=False):
+    def __init__(self):
         # Object Attributes/Variables previous values were hard coded to class and it was not aplicable for universal use
         # To make it universal the parameters named like below have to be added after self in brackets above
-        self.make = make # this kind of attributes setting in class is preferable.
-        self.model = model
-        self.year = year
-        self.color = color
-        self.moon_roof = moon_roof
-        self.engine_running = False
+        self.make = '' # the kind of attributes setting with writing in brackets above in class is preferable. (maybe)
+        self.model = '' # it is also possible to assign values to objects leaving them as an empty string
+        self.year = ''
+        self.color = ''
+        self.moon_roof = ''
+        self.engine_running = ''
     
     # Methods
 
@@ -28,8 +28,21 @@ class Car:
 
 def main(): # function outside of class
     print('Hello from main() function!')
-    car1 = Car('Ford', 'Mustang', 2011, 'Blue') # the obhects of a class Car were created inside the function main
-    car2 = Car('Tesla', 'Model 3', 2021, 'Red', True)
+    car1 = Car() # the objects of a class Car were created inside the function main
+    car2 = Car()
+
+    # Values
+    car1.make = 'Ford' # it is possible to assign values in this fashion too
+    car1.model = 'Mustang'
+    car1.color = 'Blue'
+    car1.year = 2010
+    car1.moon_roof = False
+
+    car2.make = 'Tesla'
+    car2.model = 'Model 3'
+    car2.color = 'Red'
+    car2.year = 2020
+    car2.moon_roof = True
 
     # Accessing car1 attributes
     print('Printing car1 details:'.center(50, '-'))
@@ -51,6 +64,8 @@ def main(): # function outside of class
     print('Class Attributes:'.center(50, '-'))
     print('car1 number of tires:', car1.tires_num)
     print('car1 number of steering wheels', car1.steering_wheel_num)
+    Car.steering_wheel_num = 2 # this means that it is possble to change class attribute values for class too
+    Car.tires_num = 10 # this means that it is possble to change class attribute values for class too
     print('car2 number of tires:', car2.tires_num)
     print('car2 number of steering wheels', car2.steering_wheel_num)
     print('Car number of tires:', Car.tires_num)
