@@ -24,3 +24,14 @@ class Car:
     
     def stop_engine(self): # method that changes an objects value denoting that it is making someting
         self.engine_running = False
+
+
+def main(): # function outside of class
+    print('Hello from main() function!')
+    car1 = Car('Ford', 'Mustang', 2011, 'Blue') # the obhects of a class Car were created inside the function main
+    car2 = Car('Tesla', 'Model 3', 2021, 'Red', True)
+
+
+
+if __name__ == '__main__': # function is called if this condition is met
+    main()
