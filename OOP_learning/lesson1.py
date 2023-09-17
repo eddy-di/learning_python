@@ -7,13 +7,14 @@ class Car:
     transmission = 'manual' # or 'automatic'
 
     # Class Constructor/Initializer (Method with a special name)
-    def __init__(self):
-        #Object Attributes/Variables
-        self.make = 'Ford'
-        self.model = 'Mustang'
-        self.year = 2010
-        self.color = 'Green'
-        self.moon_roof = True
+    def __init__(self, make, model, year, color, moon_roof=False):
+        # Object Attributes/Variables previous values were hard coded to class and it was not aplicable for universal use
+        # To make it universal the parameters named like below have to be added after self in brackets above
+        self.make = make # this kind of attributes setting in class is preferable.
+        self.model = model
+        self.year = year
+        self.color = color
+        self.moon_roof = moon_roof
         self.engine_running = False
     
     # Methods
