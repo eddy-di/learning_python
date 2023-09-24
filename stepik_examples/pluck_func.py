@@ -1,22 +1,17 @@
 def pluck(data, path, default=None):
-    if len(path) > 1:
-        path = path.split('.')
-        def yield_from_data(dictionary):
-            for key, value in dictionary.items():
-                yield key, value
-        indexes = 0
-        for key, value in yield_from_data(data):
-            if path[indexes] == key and indexes <= len(path):
-                default = value
-                indexes += 1
-            else:
-                return default
-    elif len(path) == 1:
-        default = data[path]
+    if not isinstance(data, dict) or not path:
         return default
+    
+    key = path[0]
+    if key in data:
+        if len(path) == 1:
+            default = data[key]
+            return default
+        else:
+            return pluck(data[key], path[2:], default=None)
     else:
         return default
         
-d = {'a': {'b': 5, 'z': 20}, 'c': {'d': 3}, 'x': 40}
+d = {'a': {'b': {'c': {'d': {'e': 4}}}}}
 
-print(pluck(d, 'a.b'))
+print(pluck(d, 'a.b.c'))
