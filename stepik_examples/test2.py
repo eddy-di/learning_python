@@ -1,3 +1,9 @@
-d = [2016, 1, 1]
+class Example:
+    class_attribute = "example atribute"
 
-print(tuple(d))
+    def __init__(self, instance_attr):
+        self.instance_attr = instance_attr
+
+ex = Example('atrs')
+
+print(ex.__dict__)
