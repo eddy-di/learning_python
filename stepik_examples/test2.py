@@ -1,9 +1,18 @@
-class Example:
-    class_attribute = "example atribute"
+m = []
+counter = 1
+for row in range(4):
+    temp = []
+    for col in range(2):
+        temp.append(counter)
+        counter += 1
+    m.append(temp)
+    temp = []
 
-    def __init__(self, instance_attr):
-        self.instance_attr = instance_attr
 
-ex = Example('atrs')
+transpose = [[m[j][i] for j in range(4)] for i in range(2)]
 
-print(ex.__dict__)
+for r in m:
+    print(*r)
+print()
+for r in transpose:
+    print(*r)

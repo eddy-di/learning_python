@@ -26,7 +26,7 @@ attrs = {
 }
 obj = AnyClass(**attrs)
 
-print(obj.name)
-print(obj.birth_date)
-print(obj.age)
-print(obj.career)
+# print(obj.name)
+# print(obj.birth_date)
+# print(obj.age)
+# print(obj.career)
