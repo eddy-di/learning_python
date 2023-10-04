@@ -1,4 +1,5 @@
-d = {'a': 1, 'b': 2}
+te = []
 
-print(tuple(d.items()))
+test = iter(te)
 
+print(len(te))
