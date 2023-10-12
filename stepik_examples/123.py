@@ -1,43 +1,46 @@
-# l = []
-# 
-# l.append(1)
-# print(l)
-# 
-# l.append([2])
-# print(l)
-# 
-# l[1].append([3])
-# print(l)
-# 
-# l[1][1].append([4])
-# print(l)
-# 
-# l[1][1][1].append([5])
-# print(l)
+from contextlib import contextmanager
 
-# def generate_nested_lists(n):
-    # result = [n]
-    # for i in range(n-1, 0, -1):
-        # result = [i, result]
-    # return result
-# 
-# Generate the nested lists with different levels
-# for i in range(1, 10):
-    # result = generate_nested_lists(i)
-    # print(result)
+@contextmanager
+def safe_file_edit(filename):
+    try:
+        with open(filename, 'r+') as file:
+            initial_state = file.read()
+            edited_state = initial_state
+
+            yield edited_state
+
+            if edited_state != initial_state:
+                file.seek(0)  # Move the file pointer to the beginning
+                file.truncate()  # Clear the file
+                file.write(edited_state)  # Write the edited content
+    except Exception as e:
+        print(f"Error: {e}")
+# Usage as a context manager
+# with safe_file_edit('example.txt', 'r+') as file_content:
+    # Make changes to the file content
+    # file_content += "This is an additional line.\n"
+    # file_content += "Another line."
+
+    # Simulate an error
+    # raise ValueError("Simulated error")
+
+# The file is restored to its initial state upon error
 
 
-def generate_nested_lists(values):
-    if not values:
-        return None
-    result = values[:-1]
-    for val in values[:-1][::-1]:
-        result = [val, result]
-    return result
+print('TEST_1:')
+with safe_file_edit('undertale.txt') as file:
+    file.write('Тень от руин нависает над вами, наполняя вас решительностью')
+    
+with open('undertale.txt') as file:
+    print(file.read())
 
-# Generate nested lists with different values
-values_list = [1, "two", [3, 4], "five", (6, 7)]
+print('TEST_2:')
+with safe_file_edit('under_tale.txt') as file:
+    file.write('Тень от руин нависает над вами, наполняя вас решительностью\n')
+    
+with safe_file_edit('under_tale.txt') as file:
+    print('Под весёлый шорох листвы вы наполняетесь решительностью', file=file)
+    raise ValueError
 
-for values in values_list:
-    result = generate_nested_lists(values)
-    print(result)
+with open('under_tale.txt') as file:
+    print(file.read())
