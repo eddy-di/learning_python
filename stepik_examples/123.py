@@ -1,7 +1,11 @@
-class Test:
-    __slots__ = ...
-    def __init__(self) -> None:
-        pass
+from datetime import date, timedelta
 
-test = Test()
-print(test.__slots__)
+
+today = date.today()
+
+res = today + timedelta(days=5)
+print(type(res))
+
+days_left = res - today
+
+print(days_left.days)
