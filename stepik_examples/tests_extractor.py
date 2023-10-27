@@ -3,7 +3,7 @@ with open('/home/eddy-di/Downloads/code_raw_texts.txt', 'r', encoding='utf-8') a
     data2 = []
     for line in data:
         if 'TEST_' in line:
-            line = line.replace('# ', "print('")
+            line = line.replace('# ', "print()\nprint('")
             line = line[:-1] + "')" + line[-1:]
         data2.append(line)
 
