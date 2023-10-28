@@ -1,11 +1,11 @@
-from datetime import date, timedelta
+class Point:
+    def __init__(self, x, y, color):
+        self.x = x
+        self.y = y
+        self.color = color
 
+point = Point(1, 2, 'red')
 
-today = date.today()
-
-res = today + timedelta(days=5)
-print(type(res))
-
-days_left = res - today
-
-print(days_left.days)
+for i in point.__dict__.keys():
+    k = '{i}'
+    print(k)
