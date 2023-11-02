@@ -1,11 +1,8 @@
-class Point:
-    def __init__(self, x, y, color):
-        self.x = x
-        self.y = y
-        self.color = color
+# Original dictionary
+original_dict = {'a': 1, 'b': 2, 'c': 3}
 
-point = Point(1, 2, 'red')
+# Create a new dictionary with changed keys
+new_dict = {'x': original_dict['a'], 'y': original_dict['b'], 'z': original_dict['c']}
 
-for i in point.__dict__.keys():
-    k = '{i}'
-    print(k)
+print(new_dict)  # Output: {'x': 1, 'y': 2, 'z': 3}
+print(new_dict)  # Output: {'x': 1, 'y': 2, 'z': 3}

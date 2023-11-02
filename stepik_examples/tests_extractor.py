@@ -1,4 +1,5 @@
-with open('/home/eddy-di/Downloads/code_raw_texts.txt', 'r', encoding='utf-8') as f, open('/home/eddy-di/Desktop/learning_python/stepik_examples/code_texts.txt', 'w') as output:
+with (open('/home/eddy-di/Downloads/code_raw_texts.txt', 'r', encoding='utf-8') as f, 
+      open('/home/eddy-di/Desktop/learning_python/stepik_examples/code_texts.txt', 'w') as output):
     data = f.readlines()
     data2 = []
     for line in data:
