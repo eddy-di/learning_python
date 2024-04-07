@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "y"
+version = "1.0.0"
+description = ""
+authors = ["eddy.di <eddy.di.fint@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pdfkit = "^1.0.0"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.3"
+pyppeteer = "^2.0.0"
+xhtml2pdf = "^0.2.15"
+qrcode = "^7.4.2"
+pillow = "^10.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
