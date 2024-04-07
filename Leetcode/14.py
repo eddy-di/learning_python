@@ -2,31 +2,22 @@
 
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
-        res = ''
-        length = len(strs)
-        common_prefixes = {}
-        for i in strs:
-            word_dict = {}
-            for c in i:
-                if c not in word_dict:
-                    word_dict[c] = word_dict.get(c, 0) + 1
-                else:
-                    word_dict[c] = word_dict.get(c, 0) + 1
-            for k, v in word_dict.items():
-                if v > 1:
-                    v = 1
-                    common_prefixes[k] = common_prefixes.get(k, 0) + 1
-                else:
-                    common_prefixes[k] = common_prefixes.get(k, 0) + 1
-                    
-        for k, v in common_prefixes.items():
-            if v == length:
-                res += k
-
-        return res
+        ans=""
+        v=sorted(strs)
+        first=v[0]
+        last=v[-1]
+        for i in range(min(len(first),len(last))):
+            if(first[i]!=last[i]):
+                return ans
+            ans+=first[i]
+        return ans
 
 case1 = ["flower","flow","flight"]
 case2 = ["dog","racecar","car"]
+case3 = ['car', 'cir']
+case4 = ['aa', 'aa']
 
 print(Solution().longestCommonPrefix(case1))
 print(Solution().longestCommonPrefix(case2))
+print(Solution().longestCommonPrefix(case3))
+print(Solution().longestCommonPrefix(case4))
